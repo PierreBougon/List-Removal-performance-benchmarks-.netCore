@@ -1,5 +1,17 @@
 # List-Removal-performance-benchmarks-.netCore
+
 Some benchmarks around the list removal strategy in C# .netCore
+
+## What do we bench and how ?
+
+Here is a bench of 3 different ways of removing elements in a list in C# .NetCore, every bench is an average run time over 1000 run on the same list for everyone for every run
+
+RemoveAt : Native List.RemoveAt
+
+LinQ.Where : Recreate the cleaned list
+
+RemoveAtUnordered : Custom method if list doesn't need the order => swap the last element the the index we want to remove and shrink the list by removing the last element
+
 
 ## Benchmarks reuslts
 
@@ -42,3 +54,12 @@ Some benchmarks around the list removal strategy in C# .netCore
 - Remove unordered 29,9195827 ms
 
 - Remove At native TIMEOUT ???
+
+
+## Conclusions
+
+Native RemoveAt is an O(n) operation and with large list and garbage collector it struggles a lot to remove elements, even on small lists it is not performant as it will be faster to create a new array from scratch than remove the element then shrink the array by creating a new one with the new capacity : Should never be used on List
+
+LinQ Where has the advantage of producing imutable code and it performs really well
+
+Custom RemoveAt with the swap technique (move the last element to the index you want to remove then shrink the list by 1 removing the last element) : on small lists (< 1000 more or less) it performs better than recreating a new array with a significant gain, it becomes useless on large lists /!\ it does not garantee the order only usable if you don't care about the order
