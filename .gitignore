@@ -1,52 +1,94 @@
-# Prerequisites
-*.d
-
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
+﻿###################
+# compiled source #
+###################
+*.com
+*.class
 *.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
 *.pdb
+*.dll.config
+*.cache
+*.suo
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# Include dlls if they're in the CommonReferences directory
+!*CommonReferences/*.dll
+!*packages/**/*.dll
+!*.paket/**/*.exe
+####################
+# VS Upgrade stuff #
+####################
+UpgradeLog.XML
+_UpgradeReport_Files/
+###############
+# Directories #
+###############
+bin/
+obj/
+TestResults/
+packages/
+###################
+# Web publish log #
+###################
+*.Publish.xml
+#############
+# Resharper #
+#############
+/_ReSharper.*
+*.ReSharper.*
+############
+# Packages #
+############
+# it�s better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+######################
+# Logs and databases #
+######################
+*.log
+*.sqlite
+# OS generated files #
+######################
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+[Bb]in
+[Oo]bj
+[Tt]est[Rr]esults
+*.suo
+*.user
+*.[Cc]ache
+*[Rr]esharper*
+NuGet.exe
+_[Ss]cripts
+*.exe
+*.nupkg
+*.ncrunchsolution
+*.dot[Cc]over
+.sass-cache/
+*.map
+*.vssscc
+/.vs
+/UpgradeLog.htm
+
+.vs
+
+# Remove cake build tooling
+# Build related
+tools/**
+build/**
+TestResults/
+
+# Node files
+package-lock.json
+**node_modules/
+
+# Auto generated swagger files
+swagger.json
+**/auto_generated_tests/
