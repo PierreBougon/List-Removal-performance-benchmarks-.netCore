@@ -6,11 +6,11 @@ Some benchmarks around the list removal strategy in C# .netCore
 
 Here is a bench of 3 different ways of removing elements in a list in C# .NetCore, every bench is an average run time over 1000 run on the same list for everyone for every run
 
-RemoveAt : Native List.RemoveAt
+- RemoveAt : Native List.RemoveAt
 
-LinQ.Where : Recreate the cleaned list
+- LinQ.Where : Recreate the cleaned list
 
-RemoveAtUnordered : Custom method if list doesn't need the order => swap the last element the the index we want to remove and shrink the list by removing the last element
+- RemoveAtUnordered : Custom method if list doesn't need the order => swap the last element the the index we want to remove and shrink the list by removing the last element
 
 
 ## Benchmarks reuslts
