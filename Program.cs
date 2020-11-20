@@ -45,6 +45,12 @@ namespace PerfBench
             }
         }
 
+        static void RemoveAllOnCompare(List<MyObject> list)
+        {
+            list.RemoveAll(i => i.Value % inverseRemoveFrequency == 0);
+        }
+
+
         static void RemoveOnCompareWithRemoveAt(List<MyObject> list)
         {
             for (int i = list.Count - 1; i >= 0; --i)
@@ -67,6 +73,7 @@ namespace PerfBench
             var list = GetList(size, rand);
             var list1 = new List<MyObject>(list);
             var list2 = new List<MyObject>(list);
+            var list3 = new List<MyObject>(list);
 
             Console.WriteLine("Recreate correct list");
 
@@ -99,40 +106,35 @@ namespace PerfBench
             Console.WriteLine((watch.Elapsed.TotalMilliseconds / it).ToString("##.################"));
 
 
-
-
-
-            Console.WriteLine("Remove At native");
+            Console.WriteLine("Remove All native");
 
             watch.Reset();
             watch.Start();
+
             for (int i = 0; i < it; ++i)
             {
-                watch.Stop();
-                var listx = new List<MyObject>(list2);
-                watch.Start();
-                RemoveOnCompareWithRemoveAt(listx);
+                RemoveAllOnCompare(list3);
             }
             watch.Stop();
 
             Console.WriteLine((watch.Elapsed.TotalMilliseconds / it).ToString("##.################"));
 
 
-            //var list1 = GetList(size, rand);
-            //var list2 = new List<MyObject>(list1);
-            //Console.WriteLine("Recreate correct list");
+
+            //Console.WriteLine("Remove At native");
+
             //watch.Reset();
             //watch.Start();
-            //var list = ReturnFilteredList(list1);
+            //for (int i = 0; i < it; ++i)
+            //{
+            //    watch.Stop();
+            //    var listx = new List<MyObject>(list2);
+            //    watch.Start();
+            //    RemoveOnCompareWithRemoveAt(listx);
+            //}
             //watch.Stop();
-            //Console.WriteLine(watch.Elapsed.ToString());
-            //watch.Reset();
-            //Console.WriteLine("Remove unordered");
-            //watch.Start();
-            //RemoveOnCompare(list2);
-            //watch.Stop();
-            //Console.WriteLine(watch.Elapsed.ToString());
-            //watch.Reset();
+
+            //Console.WriteLine((watch.Elapsed.TotalMilliseconds / it).ToString("##.################"));
 
         }
 
