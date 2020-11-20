@@ -2,6 +2,8 @@
 
 Some benchmarks around the list removal strategy in C# .netCore
 
+To be updated : The RemoveAll added to the bench is 5 to 10 times faster !
+
 ## What do we bench and how ?
 
 Here is a bench of 3 different ways of removing elements in a list in C# .NetCore, every bench is an average run time over 1000 run on the same list for everyone for every run
