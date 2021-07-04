@@ -19,43 +19,52 @@ Here is a bench of 3 different ways of removing elements in a list in C# .NetCor
 
 
 ### Small size
-- Recreate correct list : `0,0016527 ms`
+- Recreate correct list : `0,0018919 ms`
 
-- Remove unordered : `0,0026065 ms`
+- Remove unordered : `0,0020857 ms`
 
-- Remove At native : `0,0021817 ms`
+- Remove At native : `0,0015852 ms`
+
+- Remove All native : `0,0002715 ms`
 
 
 ### Small size +
-- Recreate correct list : `0,039476 ms`
+- Recreate correct list : `0,0362409 ms`
 
-- Remove unordered : `0,0282642 ms`
+- Remove unordered : `0,0218615 ms`
 
-- Remove At native : `0,0488365 ms`
+- Remove At native : `0,044515 ms`
+
+- Remove All native : `0,0025464 ms`
 
 
 ### Medium size
-- Recreate correct list : `0,2047986 ms`
+- Recreate correct list : `0,1991805 ms`
 
-- Remove unordered : `0,2634362 ms`
+- Remove unordered : `0,2179159 ms`
 
-- Remove At native : `2,5061822 ms`
+- Remove At native : `2,1869103 ms`
 
+- Remove All native : `0,0264847 ms`
 
 ### Medium size+
-- Recreate correct list : `2,240202 ms`
+- Recreate correct list : `1,9935933 ms`
 
-- Remove unordered : `2,6004066 ms`
+- Remove unordered : `2,203854 ms`
 
 - Remove At native : `276,1453138 ms`
 
+- Remove All native : `0,2626365 ms`
+
 
 ### Large size
-- Recreate correct list : `21,2680889 ms`
+- Recreate correct list : `19,0728416 ms`
 
-- Remove unordered : `29,9195827 ms`
+- Remove unordered : `24,9022341 ms`
 
 - Remove At native : `TIMEOUT ???`
+
+- Remove All native : `3,4090118 ms`
 
 
 ## Conclusions
