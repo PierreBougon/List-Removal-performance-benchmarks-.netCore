@@ -2,7 +2,6 @@
 
 Some benchmarks around the list removal strategy in C# .netCore
 
-To be updated : The RemoveAll added to the bench is 5 to 10 times faster !
 
 ## What do we bench and how ?
 
@@ -71,6 +70,8 @@ Here is a bench of 3 different ways of removing elements in a list in C# .NetCor
 
 Native RemoveAt is an O(n) operation and with large list and garbage collector it struggles a lot to remove elements, even on small lists it is not performant as it will be faster to create a new array from scratch than remove the element then shrink the array by creating a new one with the new capacity : Should never be used on List
 
-LinQ Where has the advantage of producing imutable code and it performs really well
+LinQ Where has the advantage of producing immutable code and it performs really well
 
 Custom RemoveAt with the swap technique (move the last element to the index you want to remove then shrink the list by 1 removing the last element) : on small lists (< 1000 more or less) it performs better than recreating a new array with a significant gain, it becomes useless on large lists /!\ it does not garantee the order only usable if you don't care about the order
+
+If you have a lot of removal to do as it is the case in this benchmark RemoveAll is the only performant option if you can sacrifice the immutability of your list
