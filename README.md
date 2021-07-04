@@ -74,4 +74,4 @@ LinQ Where has the advantage of producing immutable code and it performs really 
 
 Custom RemoveAt with the swap technique (move the last element to the index you want to remove then shrink the list by 1 removing the last element) : on small lists (< 1000 more or less) it performs better than recreating a new array with a significant gain, it becomes useless on large lists /!\ it does not garantee the order only usable if you don't care about the order
 
-If you have a lot of removal to do as it is the case in this benchmark RemoveAll is the only performant option if you can sacrifice the immutability of your list
+RemoveAll is the way to go as it is up to 10 times faster than other methods, I tested it on different remove frequency (removing more or less objects) it seems to be always the best solution
