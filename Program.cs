@@ -121,21 +121,23 @@ namespace PerfBench
 
 
 
-            //Console.WriteLine("Remove At native");
-
-            //watch.Reset();
-            //watch.Start();
-            //for (int i = 0; i < it; ++i)
-            //{
-            //    watch.Stop();
-            //    var listx = new List<MyObject>(list2);
-            //    watch.Start();
-            //    RemoveOnCompareWithRemoveAt(listx);
-            //}
-            //watch.Stop();
-
-            //Console.WriteLine((watch.Elapsed.TotalMilliseconds / it).ToString("##.################"));
-
+            if (size < 50000)
+            {
+                Console.WriteLine("Remove At native");
+            
+                watch.Reset();
+                watch.Start();
+                for (int i = 0; i < it; ++i)
+                {
+                    watch.Stop();
+                    var listx = new List<MyObject>(list2);
+                    watch.Start();
+                    RemoveOnCompareWithRemoveAt(listx);
+                }
+                watch.Stop();
+            
+                Console.WriteLine((watch.Elapsed.TotalMilliseconds / it).ToString("##.################"));
+            }
         }
 
         static void Main(string[] args)
@@ -145,6 +147,14 @@ namespace PerfBench
 
             Thread.Sleep(500);
 
+            // JIT pre warmup
+            Console.WriteLine("");
+            Console.WriteLine("Jit Pre WarmUp");
+            RunBench(5, watch, rand);
+
+
+
+            
             Console.WriteLine("");
             Console.WriteLine("Medium size+");
             RunBench(100000, watch, rand);
